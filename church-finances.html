@@ -10,15 +10,29 @@
 
 <header class="bg-blue-900 text-white p-6">
   <h1 class="text-3xl font-bold">Church Finances</h1>
-  <nav class="mt-2 flex flex-wrap gap-4">
-    <a href="index.html" class="text-blue-300 hover:underline">Home</a>
-    <a href="joseph-smith-first-vision.html" class="text-blue-300 hover:underline">First Vision</a>
-    <a href="joseph-smith-biography.html" class="text-blue-300 hover:underline">Joseph Smith Biography</a>
-    <a href="lds-theology.html" class="text-blue-300 hover:underline">LDS Theology</a>
-    <a href="church-history-timeline.html" class="text-blue-300 hover:underline">History Timeline</a>
-    <a href="controversies.html" class="text-blue-300 hover:underline">Controversies</a>
+  <nav class="mt-2 flex flex-wrap gap-4" id="main-nav">
+    <a href="index.html" class="nav-link text-blue-300 hover:underline">Home</a>
+    <a href="joseph-smith-first-vision.html" class="nav-link text-blue-300 hover:underline">First Vision</a>
+    <a href="joseph-smith-biography.html" class="nav-link text-blue-300 hover:underline">Joseph Smith Biography</a>
+    <a href="lds-theology.html" class="nav-link text-blue-300 hover:underline">LDS Theology</a>
+    <a href="church-history-timeline.html" class="nav-link text-blue-300 hover:underline">History Timeline</a>
+    <a href="controversies.html" class="nav-link text-blue-300 hover:underline">Controversies</a>
   </nav>
 </header>
+<script>
+(function() {
+  var links = document.querySelectorAll('#main-nav .nav-link');
+  var path = location.pathname.split('/').pop();
+  links.forEach(function(link) {
+    if(link.getAttribute('href') === path) {
+      link.classList.remove('text-blue-300','hover:underline');
+      link.classList.add('font-bold','underline','text-white','cursor-default');
+      link.setAttribute('aria-current','page');
+      link.removeAttribute('href');
+    }
+  });
+})();
+</script>
 
 <main class="p-6 max-w-5xl mx-auto space-y-8 flex-1">
   <section>
